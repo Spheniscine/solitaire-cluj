@@ -28,8 +28,6 @@ pub fn CardComponent<C: PartialEq + Clone + 'static, S: SkinTrait<C> + 'static>(
     onclick: EventHandler<MouseEvent>,
     #[props(default)]
     ondoubleclick: EventHandler<MouseEvent>,
-    #[props(default)]
-    oncontextmenu: EventHandler<MouseEvent>,
 
     #[props(default)]
     class: Option<String>,
@@ -61,7 +59,7 @@ pub fn CardComponent<C: PartialEq + Clone + 'static, S: SkinTrait<C> + 'static>(
                 color: skin.get_color(card, !color_mode),
                 class,
 
-                onclick, ondoubleclick, oncontextmenu,
+                onclick, ondoubleclick,
 
                 div { display: "flex", align_items: "center", pointer_events: "none", {skin.render_rank(&card)}},
                 div { display: "flex", align_items: "center", pointer_events: "none", {skin.render_suit(&card)}},
@@ -85,7 +83,7 @@ pub fn CardComponent<C: PartialEq + Clone + 'static, S: SkinTrait<C> + 'static>(
                     border_radius: rem(width * CARD_BORDER_RADIUS_RATIO),
                     padding: pt(0.25),
                     display: "grid",
-                    onclick, ondoubleclick, oncontextmenu,
+                    onclick, ondoubleclick,
 
                     div {
                         class: "card-pattern-1",
@@ -128,7 +126,6 @@ pub fn CardFrame(
     hint: Option<Element>,
     #[props(default = "#aaa".to_string())] color: String,
     onclick: EventHandler<MouseEvent>,
-    oncontextmenu: EventHandler<MouseEvent>,
 ) -> Element {
     let pt = width / 12.;
     let pt = |x: f32| {
@@ -151,7 +148,7 @@ pub fn CardFrame(
             border_radius: pt(1.5),
             font_size: pt(5.),
             padding: pt(0.25),
-            onclick, oncontextmenu,
+            onclick,
 
             if let Some(hint) = hint {
                 div {
