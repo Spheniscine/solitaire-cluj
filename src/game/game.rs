@@ -76,7 +76,7 @@ impl GameState {
 
         res.new_game();
 
-        // test for column limit
+        // // test for column limit
         // for i in (1..=8).rev() {
         //     let card = Card { rank: i, suit: Suit::Clubs, tapped: i == 1 };
         //     res.board.depots[DepotRole::Tableau.id(0)].push(card);
