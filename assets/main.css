@@ -178,4 +178,5 @@ button {
 }
 .fading {
     animation: 0.2s fading;
+    opacity: 0;
 }

@@ -106,7 +106,7 @@ pub fn Hero() -> Element {
                     position: Vec2 { x: 0., y: 20. },
                     board: st.board.clone(),
                     skin: st.skin,
-                    // onclick: move |pos| if clean {state.write().onclick(pos);},
+                    onclick: move |pos| if clean {state.write().onclick(pos);},
                     // ondoubleclick: move |pos| if clean {state.write().ondoubleclick(pos);},
                     animation_key: st.animation_key,
                     is_won: st.is_won(),
