@@ -1,7 +1,7 @@
 use dioxus::prelude::*;
 use glam::Vec2;
 
-use crate::{components::{CARD_BORDER_RADIUS_RATIO, CARD_HEIGHT_RATIO, CardComponent, CardFrame, Movement, rem}, game::{AnimationKey, Board, BoardPos, Card, ColorMode, DepotRole, NUM_DEPOTS, NUM_TABLEAUS, Skin}};
+use crate::{components::{CARD_BORDER_RADIUS_RATIO, CARD_HEIGHT_RATIO, CardComponent, CardFrame, Emoji, Movement, rem}, game::{AnimationKey, Board, BoardPos, Card, ColorMode, DepotRole, NUM_DEPOTS, NUM_TABLEAUS, Skin}};
 
 #[component]
 pub fn BoardComponent(
@@ -149,6 +149,18 @@ pub fn BoardComponent(
                 }
             }
 
+            if board.num_cheats == 0 {
+                div {
+                    position: "absolute",
+                    left: rem(93.),
+                    top: rem(149.),
+                    class: if board.cheats_delta > 0 {"fading"},
+                    font_size: rem(5.),
+
+                    Emoji { text: "👼" }
+                }
+            }
+
             {anims}
 
             if is_won {
@@ -163,7 +175,14 @@ pub fn BoardComponent(
                     font_size: rem(7.),
                     border_radius: rem(2.),
                     text_align: "center",
+
+                    if board.num_cheats == 0 {
+                        Emoji { text: "👼" }, " ",
+                    }
                     "YOU WIN!",
+                    if board.num_cheats == 0 {
+                         " ", Emoji { text: "👼" },
+                    }
                 }
             }
         }

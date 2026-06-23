@@ -171,3 +171,11 @@ button {
    height: 1px;
    width: 1px;
 }
+
+@keyframes fading {
+    0% {opacity:1; animation-timing-function: ease-in;}
+    100% {opacity:0}
+}
+.fading {
+    animation: 0.2s fading;
+}
