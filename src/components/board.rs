@@ -152,7 +152,7 @@ pub fn BoardComponent(
             if board.num_cheats == 0 {
                 div {
                     position: "absolute",
-                    left: rem(93.),
+                    left: rem(92.),
                     top: rem(149.),
                     class: if board.cheats_delta > 0 {"fading"},
                     font_size: rem(5.),
