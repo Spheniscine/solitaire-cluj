@@ -2,16 +2,16 @@ use dioxus::prelude::*;
 use async_std::stream::StreamExt;
 use glam::Vec2;
 
-use crate::{components::{BoardComponent, EMOJI_MAP, rem}, game::{ANIMATION_DURATION, AnimationKey, GameState, ScreenState,}};
+use crate::{components::{BoardComponent, EMOJI_MAP, LocalStorage, rem}, game::{ANIMATION_DURATION, AnimationKey, GameState, ScreenState,}};
 
 #[component]
 pub fn Hero() -> Element {
     let mut state = use_signal(|| {
-        // if let Some(mut state) = LocalStorage.load_game_state() {
-        //     state.board.selected = None;
-        //     state.screen_state = ScreenState::Game;
-        //     return state;
-        // }
+        if let Some(mut state) = LocalStorage.load_game_state() {
+            state.board.selected = None;
+            state.screen_state = ScreenState::Game;
+            return state;
+        }
         GameState::init()
     });
 
@@ -48,7 +48,7 @@ pub fn Hero() -> Element {
                     top: rem(1.5),
                     left: rem(2.),
                     class: "game-button",
-                    // onclick: move |_| if clean {state.write().new_game()},
+                    onclick: move |_| if clean {state.write().new_game()},
                     "New Game"
                 }
 
@@ -80,7 +80,7 @@ pub fn Hero() -> Element {
                     top: rem(1.5),
                     right: rem(30.),
                     class: if st.undo_possible() {"game-button"} else {"game-button-disabled"},
-                    // onclick: move |_| if clean {state.write().restart()},
+                    onclick: move |_| if clean {state.write().restart()},
                     "Reset"
                 }
 
@@ -98,7 +98,7 @@ pub fn Hero() -> Element {
                     top: rem(11.),
                     right: rem(30.),
                     class: if st.undo_possible() {"game-button"} else {"game-button-disabled"},
-                    // onclick: move |_| if clean {state.write().undo()},
+                    onclick: move |_| if clean {state.write().undo()},
                     "Undo"
                 }
 
