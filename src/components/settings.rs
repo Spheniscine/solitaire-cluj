@@ -128,7 +128,7 @@ pub fn Settings(game_state: Signal<GameState>) -> Element {
 
             p {
                 class: "copyright",
-                "Game rules: “Eldritch Invasion” by Hempuli", br{},
+                "Game rules: “Cluj Solitaire” by Zachtronics", br{},
                 "Webapp © OnlineMathLearning.com"
             }
         }
