@@ -43,7 +43,7 @@ impl SkinTrait<Card> for Skin {
         self.render_suit_internal(card, false)
     }
 
-    fn render_suit_text(&self, card: &Card) -> Element {
-        self.render_suit_internal(card, true)
-    }
+    // fn render_suit_text(&self, card: &Card) -> Element {
+    //     self.render_suit_internal(card, true)
+    // }
 }

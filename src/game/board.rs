@@ -150,7 +150,7 @@ impl Board {
         BoardPos::new(depot, self.depots[depot].len())
     }
 
-    pub fn last_pos(&self, depot: usize) -> BoardPos {
-        BoardPos::new(depot, self.depots[depot].len().wrapping_sub(1))
-    }
+    // pub fn last_pos(&self, depot: usize) -> BoardPos {
+    //     BoardPos::new(depot, self.depots[depot].len().wrapping_sub(1))
+    // }
 }

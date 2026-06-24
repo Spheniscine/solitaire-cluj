@@ -7,7 +7,7 @@ pub trait SkinTrait<C>: PartialEq + Clone {
     fn get_color(&self, card: &C, mode: ColorMode) -> String;
     fn render_rank(&self, card: &C) -> Element;
     fn render_suit(&self, card: &C) -> Element;
-    fn render_suit_text(&self, card: &C) -> Element;
+    // fn render_suit_text(&self, card: &C) -> Element;
 }
 
 pub const CARD_HEIGHT_RATIO: f32 = 13. / 12.;
@@ -159,17 +159,17 @@ pub fn CardFrame(
     }
 }
 
-#[component]
-pub fn CardText<C: PartialEq + Clone + 'static, S: SkinTrait<C> + 'static>(card: C, skin: S, color_mode: ColorMode) -> Element {
-    rsx! {
-        span {
-            font_size: "1.2em",
-            white_space: "nowrap",
-            line_height: 1.2,
-            color: skin.get_color(&card, color_mode),
-            {skin.render_rank(&card)},
-            span {display: "inline-block", min_width: "0.1em"},
-            {skin.render_suit_text(&card)},
-        }
-    }
-}
+// #[component]
+// pub fn CardText<C: PartialEq + Clone + 'static, S: SkinTrait<C> + 'static>(card: C, skin: S, color_mode: ColorMode) -> Element {
+//     rsx! {
+//         span {
+//             font_size: "1.2em",
+//             white_space: "nowrap",
+//             line_height: 1.2,
+//             color: skin.get_color(&card, color_mode),
+//             {skin.render_rank(&card)},
+//             span {display: "inline-block", min_width: "0.1em"},
+//             {skin.render_suit_text(&card)},
+//         }
+//     }
+// }
