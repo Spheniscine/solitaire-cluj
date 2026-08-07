@@ -3,7 +3,7 @@
 }
 
 html {
-    font-size: min(1vw, 0.5625vh);
+    font-size: min(1svw, 0.5625svh);
 }
 
 .select-none {
