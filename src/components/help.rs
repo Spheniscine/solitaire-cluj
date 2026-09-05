@@ -31,7 +31,8 @@ pub fn Help(game_state: Signal<GameState>) -> Element {
                 }
 
                 p {
-                    "Cards are stacked by ",Emph{"descending rank"},". Cards in order can be moved as a stack."
+                    "Cards are stacked by ",Emph{"decrementing ranks"},". Cards in order can be moved as a stack.
+                    An empty column may be filled by any card or stack."
                 }
 
                 p {
@@ -39,7 +40,7 @@ pub fn Help(game_state: Signal<GameState>) -> Element {
                 }
 
                 p {
-                    "A stack of 9 descending cards, alone in a column, will collapse into a ",Emph{"locked stack"},"."
+                    "A stack of 9 decrementing cards, alone in a column, will collapse into a ",Emph{"locked stack"},"."
                 }
 
                 p {
